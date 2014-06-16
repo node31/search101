@@ -1,0 +1,22 @@
+{% extends "ndf/base.html" %}
+{% block body_content %}
+<h1>You are at the search page</h1>
+
+{{groupid}}
+
+<script type = "text/javascript" src = "/static/ndf/js/jquery-2.1.1.js"></script>
+
+<form action = "{% url 'process_search' %}" name = "search_form" method = "POST">
+	{% csrf_token %}
+	
+	Enter the value to be searched <input type = "text" name = "text_to_be_searched" id = "text_to_be_searched">
+	<input type = "button" name = "subButton" id = "subButton" value = "Submit"/>
+	<h3>Search By</h3>
+	<input type = "checkbox" name = "search_fields" value = "name"/>Name
+	<input type = "checkbox" name = "search_fields" value = "tags"/>Tags
+	<input type = "checkbox" name = "search_fields" value = "content"/>Content	
+</form>
+
+
+{% endblock %}
+
